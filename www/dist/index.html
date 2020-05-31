@@ -10,10 +10,10 @@
   <body>
     <h1>あつまれ どうぶつの森 交配エディタ
       <div id="filename-wrapper">
-        <label for="filename"><img src="/edit_icon.png" id="edit-icon" /></label><input type="text" name="filename" id="filename" size="10" value="無名の交配" />
+        <label for="filename"><img src="./edit_icon.png" id="edit-icon" /></label><input type="text" name="filename" id="filename" size="10" value="無名の交配" />
       </div>
       <div id="help-wrapper">
-        <a href="/help.html"><img src="/help.png" style="width: 30px;height:30px;" /></a>
+        <a href="./help.html"><img src="./help.png" style="width: 30px;height:30px;" /></a>
       </div>
     </h1>
     <div id="mode-selector">
@@ -65,7 +65,7 @@
             <span id="white-seed" class="clickable">種白</span>
           </div>
           <div id="selected-seed" class="cell-width"></div>
-          <!-- <img id="selected-seed-img" src="/rose_red.png" /> <span id="selected-seed-str"></span> -->
+          <!-- <img id="selected-seed-img" src="./rose_red.png" /> <span id="selected-seed-str"></span> -->
         </label>
       </div>
       <div class="mode-wrapper"> <input type="radio" name="mode" id="mode-hybrid" value="hybrid" />
@@ -123,7 +123,7 @@
         <!-- ↑delete-modal, save-modalの子要素ではないのでモーダルは閉じる -->
         <div id="delete-modal" onclick="event.stopPropagation();">
           <div id="delete-confirm" class="confirm">
-            <img src="/drop_seed.png" />
+            <img src="./drop_seed.png" />
             <span style="margin-left: 20px;">全削除しますか？<br />(この操作は戻せません。)</span>
           </div>
           <div class="clickable yes" id="delete-yes">はい</div>
@@ -140,7 +140,7 @@
               <button id="load-button">読込</button>
             </div>
             <div id="share-field" class="row-wrapper">
-              共有<input type="text" id="share-url" readonly /> <button id="clipboard-copy" title="クリップボードにコピー"><img src="/clip.png" style="width: 20px;" /></button>
+              共有<input type="text" id="share-url" readonly /> <button id="clipboard-copy" title="クリップボードにコピー"><img src="./clip.png" style="width: 20px;" /></button>
             </div>
             <div id="sns-field" class="row-wrapper">
               <div id="twitter-slot">
@@ -151,7 +151,7 @@
         </div>
         <div id="cookie-modal">
           <div id="cookie-confirm" class="confirm">
-            <img src="/sweets_cookie.png" />
+            <img src="./sweets_cookie.png" />
             <span style="margin-left: 20px;">
               保存を行うためには
               <br />
@@ -165,7 +165,7 @@
         </div>
         <div id="alert-modal">
           <div id="alert-confirm" class="confirm">
-            <img id="alert-icon" src="/book.png" />
+            <img id="alert-icon" src="./book.png" />
             <span id="alert-message" style="margin-left: 20px;">
               保存しました
             </span>
