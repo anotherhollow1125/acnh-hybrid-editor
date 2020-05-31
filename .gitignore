@@ -5,6 +5,7 @@ bin/
 pkg/
 wasm-pack.log
 www/*
+node_modules/
 !www/public
 !www/dist
 !www/bootstrap.js
