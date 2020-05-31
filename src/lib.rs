@@ -2564,6 +2564,12 @@ fn hide_overlay(s: &Singleton) -> Result<(), JsValue> {
         item.style().set_property("display", "none")?;
     }
 
+    sns_hide(s)?;
+
+    Ok(())
+}
+
+fn sns_hide(s: &Singleton) -> Result<(), JsValue> {
     let hide_targets = s.document.query_selector_all(".sns")?;
     for i in 0..hide_targets.length() {
         let item = hide_targets
@@ -2575,7 +2581,6 @@ fn hide_overlay(s: &Singleton) -> Result<(), JsValue> {
             vec![&JsValue::from("hidden")].into_iter(),
         ))?;
     }
-
     Ok(())
 }
 
@@ -2737,6 +2742,7 @@ fn init_cookie_confirm(s: &Singleton, s_rc: &Rc<RefCell<Singleton>>) -> Result<(
 }
 
 fn popup_cookie_confirm(s: &Singleton) -> Result<(), JsValue> {
+    sns_hide(s)?;
     s.overlay.style().set_property("display", "block")?;
     let cookie_modal = s
         .document
@@ -2751,6 +2757,7 @@ fn popup_cookie_confirm(s: &Singleton) -> Result<(), JsValue> {
 }
 
 fn popup_alert(s: &Singleton, mes: &str, icon: &str) -> Result<(), JsValue> {
+    sns_hide(s)?;
     s.overlay.style().set_property("display", "block")?;
     let alert_message = s
         .document
