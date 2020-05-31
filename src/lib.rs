@@ -89,7 +89,7 @@ impl CanvasCell {
             .create_element("img")?
             .dyn_into::<HtmlImageElement>()
             .unwrap();
-        img.set_src(format!("/{}.png", flower.get_name()).as_str());
+        img.set_src(format!("./{}.png", flower.get_name()).as_str());
         img.set_css_styles(vec![
             ("display", "block"),
             ("height", format!("{}px", img_size).as_str()),
@@ -2660,7 +2660,7 @@ fn init_all_delete(s: &Singleton, s_rc: &Rc<RefCell<Singleton>>) -> Result<(), J
 
 fn do_all_delete(s: &Singleton) -> Result<(), JsValue> {
     // とりあえずリロードだけでうまくいくということにしておく...そのままの可能性も大
-    s.window.location().set_href("/")?;
+    s.window.location().set_href("./")?;
     Ok(())
 }
 
@@ -3026,7 +3026,7 @@ fn data_save_to_cookie(s: &Singleton) -> Result<(), JsValue> {
     let max_age = format!("max-age={}", 60 * 60 * 24 * 365 * 10);
     hd.set_cookie(&max_age)?;
 
-    popup_alert(s, "保存しました", "/book.png")?;
+    popup_alert(s, "保存しました", "./book.png")?;
 
     Ok(())
 }
