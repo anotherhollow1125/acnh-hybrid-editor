@@ -5,14 +5,20 @@ module.exports = {
   entry: "./bootstrap.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bootstrap.js",
+    filename: "bootstrap.js"
   },
   mode: "development",
   plugins: [
-    new CopyWebpackPlugin(['index.html'])
+      // new CopyWebpackPlugin(['index.html']),
+      new CopyWebpackPlugin({
+          patterns: [
+              { from: "index.html", to: "." },
+              { context: "public", from: "**/*", to: "." },
+          ],
+      }),
   ],
 
   devServer: {
-      contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'public'),
   },
 };
