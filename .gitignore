@@ -4,3 +4,11 @@ Cargo.lock
 bin/
 pkg/
 wasm-pack.log
+www/*
+!www/public
+!www/dist
+!www/bootstrap.js
+!www/index.html
+!www/index.js
+!www/package.json
+!www/webpack.config.js
