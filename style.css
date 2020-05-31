@@ -86,27 +86,27 @@ input[type=radio] {
 }
 
 input[type=radio]+label #pointer-icon {
-    background-image: url("/pointer.png");
+    background-image: url("./pointer.png");
 }
 
 input[type=radio]:checked+label #pointer-icon {
-    background-image: url("/pointer_selected.png");
+    background-image: url("./pointer_selected.png");
 }
 
 input[type=radio]+label #seed-icon {
-    background-image: url("/seed_red.png");
+    background-image: url("./seed_red.png");
 }
 
 input[type=radio]:checked+label #seed-icon {
-    background-image: url("/seed_red_selected.png");
+    background-image: url("./seed_red_selected.png");
 }
 
 input[type=radio]+label #can-icon {
-    background-image: url("/can.png");
+    background-image: url("./can.png");
 }
 
 input[type=radio]:checked+label #can-icon {
-    background-image: url("/can_selected.png");
+    background-image: url("./can_selected.png");
 }
 
 #father, #mother {
@@ -114,12 +114,12 @@ input[type=radio]:checked+label #can-icon {
 }
 
 input[type=radio]+label #shovel-icon {
-    background-image: url("/shovel.png");
+    background-image: url("./shovel.png");
 }
 
 input[type=radio]:checked+label #shovel-icon {
-    background-image: url("/shovel_selected.png");
-    /* background-image: url("/drop_seed.png"); */
+    background-image: url("./shovel_selected.png");
+    /* background-image: url("./drop_seed.png"); */
 }
 
 /*
@@ -149,8 +149,8 @@ input[type=radio]:checked+label #shovel-icon {
 }
 
 #ticket-icon {
-    /* background-image: url("/ticket.png"); */
-    background-image: url("/card.png");
+    /* background-image: url("./ticket.png"); */
+    background-image: url("./card.png");
 }
 
 #editor {
@@ -163,23 +163,23 @@ input[type=radio]:checked+label #shovel-icon {
 }
 
 .pointer-cursor {
-    cursor: url("/pointer_30x30.png"), default;
+    cursor: url("./pointer_30x30.png"), default;
 }
 
 #editor:active {
-    cursor: url("/pointer_grabed.png"), default;
+    cursor: url("./pointer_grabed.png"), default;
 }
 
 .seed-cursor {
-    cursor: url("/seed_red_30x30.png"), default;
+    cursor: url("./seed_red_30x30.png"), default;
 }
 
 .can-cursor {
-    cursor: url("/can_30x30.png"), default;
+    cursor: url("./can_30x30.png"), default;
 }
 
 .shovel-cursor {
-    cursor: url("/shovel_30x30.png"), default;
+    cursor: url("./shovel_30x30.png"), default;
 }
 
 img {
