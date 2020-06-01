@@ -830,7 +830,7 @@ impl CanvasBook {
             .join("/");
         let hybrids_data = RE.replace_all(hybrids_data.as_str(), "");
         let data = format!("{}|{}|{}", filename, flowers_data, hybrids_data);
-        // console_log!("raw: {} / {}", data.len(), data);
+        console_log!("raw: {} / {}", data.len(), data);
         // let b64 = base64::encode(data.clone());
         // console_log!("raw_base64 {} / {}", b64.len(), b64);
         let dflt = deflate::deflate_bytes(data.as_bytes());
@@ -863,13 +863,14 @@ impl CanvasBook {
             .ok_or(JsValue::from("LOAD: hybrid part nothing."))?;
 
         lazy_static! {
-            static ref FLOWER_RE: Regex = Regex::new(r"^([a-z]+)@(\d+),(\d+):(\d{4})$").unwrap();
+            static ref FLOWER_RE: Regex = Regex::new(r"^([a-z]+)@(\d+),(\d+):(\d{3,4})$").unwrap();
         }
 
         let mut cell_book: CellBook = if flower_part.len() > 0 {
             flower_part
                 .split('/')
                 .map(|s| {
+                    console_log!("{}", s);
                     let er = || -> JsValue { JsValue::from("LOAD: invalid flower code.") };
                     let caps = FLOWER_RE.captures(s).ok_or(er())?;
                     // 正規表現により整数であることは保証...しかしオーバーフローの可能性を考えResultに
@@ -885,6 +886,11 @@ impl CanvasBook {
                         .as_str()
                         .parse::<usize>()
                         .map_err(|_| er())?;
+                    console_log!(
+                        "flower {} / {}",
+                        caps.get(1).unwrap().as_str(),
+                        caps.get(4).unwrap().as_str()
+                    );
                     let flower = Flower::strs2flower(
                         caps.get(1).unwrap().as_str(),
                         caps.get(4).unwrap().as_str(),
@@ -942,11 +948,17 @@ impl CanvasBook {
     }
 
     fn save(&self) -> Result<(), JsValue> {
+        /*ここにおいちゃダメだろう
         if self.cell_book.is_empty() && self.hybrid_book.is_empty() {
             return Ok(());
         }
+         */
 
-        let b64 = self.get_hash();
+        let b64 = if !self.cell_book.is_empty() || !self.hybrid_book.is_empty() {
+            self.get_hash()
+        } else {
+            "".to_string()
+        };
 
         window()
             .expect("Error!: window")
