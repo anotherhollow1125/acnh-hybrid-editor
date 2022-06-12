@@ -7,6 +7,9 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "bootstrap.js"
   },
+  experiments: {
+    asyncWebAssembly: true,
+  },
   mode: "development",
   plugins: [
       // new CopyWebpackPlugin(['index.html']),
@@ -19,6 +22,8 @@ module.exports = {
   ],
 
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    static: {
+      directory: path.join(__dirname, 'public'),
+    }
   },
 };
